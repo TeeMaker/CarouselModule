@@ -1,0 +1,82 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<Carousel.Dnn.CarouselModule.Models.Item>
+
+@using System.Collections.Generic
+@using DotNetNuke.Web.Mvc.Helpers
+
+<div id="Item-@Dnn.ModuleContext.ModuleId">
+    <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
+        <div class="dnnFormExpandContent dnnRight "><a href="#">@Dnn.LocalizeString("ExpandAll")</a></div>
+
+        <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
+            <a href="#" class="dnnSectionExpanded">@Dnn.LocalizeString("BasicSettings")</a>
+        </h2>
+        <fieldset>
+            <div class="dnnFormItem">
+                <div><label for="itemName">@Dnn.LocalizeString("lblName")</label></div>
+                @Html.TextBoxFor(m => m.ItemName)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemDescription">@Dnn.LocalizeString("lblDescription")</label></div>
+                @Html.TextArea("itemDescription", Model.ItemDescription)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemTitle">Title</label></div>
+                @Html.TextBoxFor(m => m.ItemTitle)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemAlt">Alt</label></div>
+                @Html.TextBoxFor(m => m.ItemAlt)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemLink">Url</label></div>
+                @Html.TextBoxFor(m => m.ItemLink)
+            </div>
+            @*<div>
+                    <label for="file">UploadFile</label>
+                    <input id="fileInputField" type="file" name="file"/>
+                    <a class="btn btn-primary" href="@Url.Action("UploadImage", "Item", new {image = })">Upload</a>
+            </div>*@
+
+            <div class="dnnFormItem">
+                <div><label id="imgPath" for="itemImgPath">Image Path</label></div>
+                @Html.TextBoxFor(m => m.ItemImgPath)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemUser">@Dnn.LocalizeString("lblAssignedUser")</label></div>
+                @Html.DropDownListFor(m => m.AssignedUserId, (IEnumerable<SelectListItem>)ViewBag.Users, "Choose...")
+            </div>
+            @Html.HiddenFor(m => m.ModuleId)
+        </fieldset>
+    </div>
+    <button type="submit" class="dnnPrimaryAction">@Dnn.LocalizeString("Submit")</button>
+    <a id="cancelEdit" href="#" class="dnnSecondaryAction">@Dnn.LocalizeString("Cancel")</a>
+</div>
+
+<script type="text/javascript">history
+    /*globals jQuery, window, Sys */
+    (function($, Sys) {
+        function dnnEditBasicSettings() {
+            $('#dnnEditBasicSettings').dnnPanels();
+            $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '@Dnn.LocalizeString("ExpandAll")', collapseText: '@Dnn.LocalizeString("CollapseAll")', targetArea: '#dnnEditBasicSettings' });
+        }
+
+        $(function() {
+            $('#cancelEdit').click(function() { dnnModal.closePopUp(false); });
+            dnnEditBasicSettings();
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function() {
+                dnnEditBasicSettings();
+            });
+        });
+
+        
+    }(jQuery, window.Sys));
+
+    function uploadFile () {
+        console.log("Hello");
+        let file = document.getElementById('input').files[0];
+        let formData = new FormData();
+
+        formData.append('file', file);
+        fetch('/Item/UploadImage', { method: "POST", body: formData });
+    }
+</script>

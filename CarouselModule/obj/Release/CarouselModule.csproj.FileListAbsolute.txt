@@ -1,0 +1,10 @@
+C:\inetpub\wwwroot\ModulProject\Website\bin\CarouselModule.dll.config
+C:\inetpub\wwwroot\ModulProject\Website\bin\CarouselModule.dll
+C:\inetpub\wwwroot\ModulProject\Website\bin\CarouselModule.pdb
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.csproj.AssemblyReference.cache
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\Carousel.Dnn.CarouselModule.App_LocalResources.Settings.resources
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.csproj.GenerateResource.cache
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.csproj.CopyComplete
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.dll
+C:\inetpub\wwwroot\ModulProject\Website\DesktopModules\CarouselModule\CarouselModule\obj\Release\CarouselModule.pdb
